@@ -1,0 +1,29 @@
+<!--gallery photo-->
+<section id="gallery-item">
+    <div class="container item text-center">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let displayItem of data" >
+            <div class="item-photo">
+                <div class="item-hover">
+                    <div class="item-hover-content">
+                        <a data-toggle="modal" [attr.data-target]="'#' + displayItem.id"><em class="fa fa-plus fa-3x"></em></a>
+                    </div>
+                </div>
+                <img [src]="displayItem.link" alt=" " />
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let displayItem of data">
+    <div class="item-modal modal fade" [id]="displayItem.id" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <img class="img-responsive img-centered" [src]="displayItem.link" alt="" />
+            <div class="text-center">
+                <button type="button" class="btn item-btn" data-dismiss="modal"><em class="fa fa-times"></em> &nbsp; Close</button>
+                <button type="button" class="btn item-btn"><a [href]="displayItem.link" target="_blank"><em class="fa fa-arrow-right"></em> &nbsp;View on Imgur</a></button>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
