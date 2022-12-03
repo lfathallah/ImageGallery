@@ -1,29 +1,31 @@
+<form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
+  <mat-form-field appearance="fill">
+    <input matInput placeholder="Search..." required #search='ngModel' name='search' [(ngModel)]='query'/>
+    <mat-error *ngIf="search.invalid && (search.dirty || search.touched)">
+      <div *ngIf="search.errors.required">
+        Search query is required.
+      </div>
+    </mat-error>
+  </mat-form-field>
+  <button mat-flat-button type='submit' color="primary">Search</button>
+</form>
+<br>
+
 <!--gallery photo-->
 <section id="gallery-item">
-    <div class="container item text-center">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let displayItem of data" >
+  <div class="container item text-center">
+    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile *ngFor='let image of data'>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
             <div class="item-photo">
-                <div class="item-hover">
-                    <div class="item-hover-content">
-                        <a data-toggle="modal" [attr.data-target]="'#' + displayItem.id"><em class="fa fa-plus fa-3x"></em></a>
-                    </div>
-                </div>
-                <img [src]="displayItem.link" alt=" " />
+              <img [src]="image.link" alt=" "/>
             </div>
-        </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
     </div>
+  </div>
 
-    <div *ngFor="let displayItem of data">
-    <div class="item-modal modal fade" [id]="displayItem.id" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <img class="img-responsive img-centered" [src]="displayItem.link" alt="" />
-            <div class="text-center">
-                <button type="button" class="btn item-btn" data-dismiss="modal"><em class="fa fa-times"></em> &nbsp; Close</button>
-                <button type="button" class="btn item-btn"><a [href]="displayItem.link" target="_blank"><em class="fa fa-arrow-right"></em> &nbsp;View on Imgur</a></button>
-            </div>
-            </div>
-        </div>
-    </div>
-    </div>
 </section>
+
