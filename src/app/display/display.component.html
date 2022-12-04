@@ -16,7 +16,7 @@
   <div class="scrolling-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb img-item" *ngFor='let image of data'>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>
           <a [href]="image.link" class="fancybox" rel="ligthbox">
             <img [src]="image.link" class="zoom img-fluid tile-image" alt="">
           </a>

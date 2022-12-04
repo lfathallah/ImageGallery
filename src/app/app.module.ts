@@ -6,9 +6,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {DisplayComponent} from './display/display.component';
 import {DisplayService} from "./display/display.service";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {MatGridListModule} from "@angular/material/grid-list";
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
@@ -20,9 +17,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    MatInputModule,
-    MatButtonModule,
-    MatGridListModule,
     InfiniteScrollModule
   ],
   providers: [DisplayService],
