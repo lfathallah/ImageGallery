@@ -1,13 +1,10 @@
 .gallery-title{
   font-size: 77px;
-  /*color: #3F6184;*/
   text-align: center;
   font-weight: bold;
   margin-bottom: 70px;
   margin-top: 70px;
   font-family: serif;
-  /*padding-bottom: 2em;
-  padding-top: 2em;*/
 }
 .multicolor {
   background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);

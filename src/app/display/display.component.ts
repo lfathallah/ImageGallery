@@ -53,7 +53,7 @@ export class DisplayComponent {
       // display the "No images found" message only when there are no images in this.data
       let messageElt = document.getElementsByClassName("message").item(0) as HTMLElement;
       if (this.data.length > 0) {
-        messageElt.style.display="hidden"
+        messageElt.style.display="none"
       } else {
         messageElt.style.display="block"
       }
@@ -80,5 +80,17 @@ export class DisplayComponent {
   onScroll() {
     this.page++
     this.search()
+  }
+
+  onMouseOver(elementId: string) {
+    console.log("Hovering HTML element id::", elementId);
+    let imageInfoElt = document.getElementById(elementId) as HTMLElement;
+    imageInfoElt.style.display="block"
+  }
+
+  onMouseLeave(elementId: string) {
+    console.log("Leaving HTML element id::", elementId);
+    let imageInfoElt = document.getElementById(elementId) as HTMLElement;
+    imageInfoElt.style.display="none"
   }
 }

@@ -1,23 +1,36 @@
 <section id="search-form">
   <form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
     <div class="search-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
-        <button class="search-button" type='submit'>Go!</button>
-        <p class="message">No images found...</p>
+      <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
+      <button class="search-button" type='submit'>
+        <img src="assets/search.png" alt="">
+      </button>
+      <p class="message">No images found...</p>
     </div>
   </form>
 </section>
+
 <section id="gallery">
   <div class="scrolling-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
        (scrolled)="onScroll()">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>
-            <a [href]="image.link" class="fancybox" rel="ligthbox">
-              <img [src]="image.link" class="zoom img-fluid tile-image" alt="">
-            </a>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>
+          <a href="#target-{{image.id}}" class="fancybox lightbox" rel="ligthbox">
+            <img [src]="image.link" class="zoom img-fluid tile-image" (mouseenter)="onMouseOver(image.id)" (mouseleave)="onMouseLeave(image.id)" alt="">
+            <div class="img-info" [id]="image.id">
+              <p class="img-title">{{image.title}}</p>
+            </div>
+          </a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div *ngFor='let image of data'>
+    <div class="lightbox-target" id="target-{{image.id}}">
+      <img [src]="image.link" alt=""/>
+      <a class="lightbox-close" href="#"></a>
+    </div>
   </div>
 </section>
