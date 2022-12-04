@@ -1,14 +1,5 @@
-.gallery-title{
-  font-size: 36px;
-  color: #3F6184;
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 70px;
-  margin-top: 70px;
-}
 .search-box{
-  padding: 20px 300px 30px;
-  text-align: center;
+  margin-left: 9.5%;
 }
 .search-box input,
 .search-box button{
@@ -21,19 +12,20 @@
   color: #000000;
   margin: 0 15px 15px 0;
   background:transparent;
-  width: 50%;
+  width: 35%;
 }
 .search-button{
   text-align: center;
   color: #ffffff;
   margin-bottom: 15px;
-  background:#3F6184;;
+  background: #3F6184;
+  width: 10%;
 }
 .search-button:hover,
 .search-button:focus,
 .search-button.active{
   color: #000000;
-  background:#E2EAF3;
+  background: #E2EAF3;
   outline:none;
 }
 .scrolling-container{

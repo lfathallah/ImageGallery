@@ -1,27 +1,22 @@
 <section id="search-form">
-  <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <h1 class="gallery-title">IMGUR Image Gallery</h1>
-  </div>
-
   <form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
     <div class="search-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
       <button class="search-button" type='submit'>Go!</button>
     </div>
   </form>
-
-  <br/>
 </section>
-<section id="gallery-items">
-  <div class="scrolling-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>
-          <a [href]="image.link" class="fancybox" rel="ligthbox">
-            <img [src]="image.link" class="zoom img-fluid tile-image" alt="">
-          </a>
+<section id="gallery">
+  <div class="scrolling-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+       (scrolled)="onScroll()">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>
+            <a [href]="image.link" class="fancybox" rel="ligthbox">
+              <img [src]="image.link" class="zoom img-fluid tile-image" alt="">
+            </a>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 </section>

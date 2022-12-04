@@ -7,11 +7,13 @@ import {AppComponent} from './app.component';
 import {DisplayComponent} from './display/display.component';
 import {DisplayService} from "./display/display.service";
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisplayComponent
+    DisplayComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
