@@ -1,8 +1,9 @@
 <section id="search-form">
   <form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
     <div class="search-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
-      <button class="search-button" type='submit'>Go!</button>
+        <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
+        <button class="search-button" type='submit'>Go!</button>
+        <p class="message">No images found...</p>
     </div>
   </form>
 </section>

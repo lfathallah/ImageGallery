@@ -11,14 +11,13 @@ const FILE_TYPE_FILTER = "image/";
   styleUrls: ['./display.component.css',]
 })
 
-export class DisplayComponent implements OnInit {
+export class DisplayComponent {
   data: any[] = [];
   query: string;
   page: number = 1;
 
-  constructor(
-    private displayService: DisplayService
-  ) {
+  constructor(private displayService: DisplayService) {
+    this.search();
   }
 
   searchPhotos(searchForm: NgForm) {
@@ -50,6 +49,14 @@ export class DisplayComponent implements OnInit {
       this.data = this.data.concat(searchData);
 
       console.log(`Found ${searchData.length} images.. Displaying a total of ${this.data.length} images`)
+
+      // display the "No images found" message only when there are no images in this.data
+      let messageElt = document.getElementsByClassName("message").item(0) as HTMLElement;
+      if (this.data.length > 0) {
+        messageElt.style.display="hidden"
+      } else {
+        messageElt.style.display="block"
+      }
     })
   }
 
@@ -73,9 +80,5 @@ export class DisplayComponent implements OnInit {
   onScroll() {
     this.page++
     this.search()
-  }
-
-  ngOnInit(): void {
-    this.search();
   }
 }

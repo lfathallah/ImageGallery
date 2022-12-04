@@ -1,17 +1,17 @@
 .search-box{
-  margin-left: 9.5%;
+  margin-left: 10%;
 }
 .search-box input,
 .search-box button{
   font-size: 18px;
   border: 2px solid #3F6184;
   padding:5px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .search-box input{
   color: #000000;
   margin: 0 15px 15px 0;
-  background:transparent;
+  background: #F4F5F6;
   width: 35%;
 }
 .search-button{
@@ -25,8 +25,13 @@
 .search-button:focus,
 .search-button.active{
   color: #000000;
-  background: #E2EAF3;
+  background: #BBBCBC;
+  border: 2px solid #BBBCBC;
   outline:none;
+}
+.message{
+  color: #667B85;
+  display: none;
 }
 .scrolling-container{
   margin-left: 8%;
