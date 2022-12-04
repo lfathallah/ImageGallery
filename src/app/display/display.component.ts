@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DisplayService} from './display.service';
-import {lastValueFrom} from "rxjs";
 import {NgForm} from "@angular/forms";
-import {query} from "@angular/animations";
 
 @Component({
   moduleId: module.id,
@@ -12,8 +10,7 @@ import {query} from "@angular/animations";
 })
 
 export class DisplayComponent implements OnInit {
-  data: any[];
-  errorMessage: string;
+  data: any[] = [];
   query: string;
   page: number = 1;
 
@@ -37,31 +34,35 @@ export class DisplayComponent implements OnInit {
 
     if (this.query && this.query !== "") {
       console.log(`Getting page ${this.page} of images matching query : "${this.query}" `)
-      data$ = this.displayService.get(this.page, this.query);
+      data$ = this.displayService.get(this.page, this.query)
     } else {
       console.log("Getting random images of page ", this.page)
       data$ = this.displayService.get(this.page);
     }
 
-    lastValueFrom(data$)
-      .then(this.extractImages)
-      .then(
-        data => this.data = data,
-        error => this.errorMessage = error
-      );
+    data$.subscribe(data => {
+      console.log("Appending images to data array object.")
+      this.data = this.data.concat(this.extractImages(data));
+      console.log(`Displaying a total of ${this.data.length} images`)
+    })
   }
 
+  /**
+   * extract data from the response and filter them to only keep images (static and animated)
+   * and exclude videos, albums and others
+   * @param res
+   * @private
+   */
   private extractImages(res) {
     if (!res.data || res.data.length == 0) {
       return {}
     }
 
-    let images = res.data.filter(img =>
+    // only keep animated images or static ones and exclude albums and videos
+    return res.data.filter(img =>
       !img.is_album &&
       img.type.toLowerCase().startsWith("image/")
     );
-    console.log("size: ", images.length)
-    return images
   }
 
   onScroll() {

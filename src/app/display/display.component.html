@@ -1,31 +1,27 @@
-<form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
-  <mat-form-field appearance="fill">
-    <input matInput placeholder="Search..." required #search='ngModel' name='search' [(ngModel)]='query'/>
-    <mat-error *ngIf="search.invalid && (search.dirty || search.touched)">
-      <div *ngIf="search.errors.required">
-        Search query is required.
-      </div>
-    </mat-error>
-  </mat-form-field>
-  <button mat-flat-button type='submit' color="primary">Search</button>
-</form>
-<br>
-
-<!--gallery photo-->
-<section id="gallery-item">
-  <div class="container item text-center">
-    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-      <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile *ngFor='let image of data'>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="item-photo">
-              <img [src]="image.link" alt=" "/>
-            </div>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
+<section id="search-form">
+  <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h1 class="gallery-title">IMGUR Image Gallery</h1>
   </div>
 
-</section>
+  <form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
+    <div class="search-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
+      <button class="search-button" type='submit'>Go!</button>
+    </div>
+  </form>
 
+  <br/>
+</section>
+<section id="gallery-items">
+  <div class="scrolling-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb img-item" *ngFor='let image of data'>
+          <a [href]="image.link" class="fancybox" rel="ligthbox">
+            <img [src]="image.link" class="zoom img-fluid tile-image" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

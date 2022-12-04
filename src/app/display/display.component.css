@@ -1,57 +1,80 @@
-#gallery-item .item-photo {
-  width: 300px;
-  height: 200px;
-  margin: 15px;
+.gallery-title{
+  font-size: 36px;
+  color: #3F6184;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 70px;
+  margin-top: 70px;
+}
+.search-box{
+  padding: 20px 300px 30px;
+  text-align: center;
+}
+.search-box input,
+.search-box button{
+  font-size: 18px;
+  border: 2px solid #3F6184;
+  padding:5px 10px;
+  border-radius: 10px;
+}
+.search-box input{
+  color: #000000;
+  margin: 0 15px 15px 0;
+  background:transparent;
+  width: 50%;
+}
+.search-button{
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 15px;
+  background:#3F6184;;
+}
+.search-button:hover,
+.search-button:focus,
+.search-button.active{
+  color: #000000;
+  background:#E2EAF3;
+  outline:none;
+}
+.scrolling-container{
+  margin-left: 8%;
+  margin-right: 8%;
+  padding-top: 2%;
+}
+#demo {
+  height:100%;
+  position:relative;
+  overflow:hidden;
+}
+.green{
+  background-color:#6fb936;
+}
+.thumb{
+  margin-bottom: 30px;
 }
 
-#gallery-item .item-photo img {
+.page-top{
+  margin-top:85px;
+}
+
+img.zoom {
   width: 100%;
-  height: 100%;
-  border-radius: 20px 20px 20px 20px;
-  cursor: pointer;
+  height: 200px;
+  border-radius:5px;
+  object-fit:cover;
 }
-
-#gallery-item .item-photo img:hover {
+img.zoom:hover{
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
   transform: scale(1.2);
-  box-shadow: 0 32px 75px slategrey;
 }
-
-#gallery-item .item-btn {
-  margin: 10px 5px 5px 5px;
-  color: black;
-  font-family: 'Rock Salt', cursive;
-  background-color: #F9BF3B;
-  border-color: #F9BF3B;
-  text-transform: uppercase;
-  font-weight: 700;
+.modal-header {
+  border-bottom: none;
 }
-
-#gallery-item .item-btn:hover {
-  color: black;
-  background-color: #E9AD1F;
-  border-color: #E9AD1F;
+.modal-title {
+  color:#000;
 }
-
-#gallery-item .item-btn:focus {
-  color: black;
-  background-color: #E9AD1F;
-  border-color: #E9AD1F;
-  outline: none;
+.modal-footer{
+  display:none;
 }
-
-#gallery-item .item-btn a {
-  text-decoration: none;
-  color: black;
-}
-
-#gallery-item .item-modal {
-  border-radius: 20px 20px 20px 20px;
-}
-
-#gallery-item .modal-dialog {
-  max-width: 1200px;
-  width: 80%;
-  margin: auto;
-  top: 10%;
-}
-
