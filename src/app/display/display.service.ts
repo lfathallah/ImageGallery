@@ -22,10 +22,12 @@ export class DisplayService {
 
   get(page: number = 1, query?: string): Observable<any> {
     if (query) {
+      console.log(`Searching all images matching query "${query}"`)
       return this.http.get(this.SEARCH_BASE_URL + `${page}?q=${query}`, httpOptions)
         .pipe(catchError(this.handleError));
     }
 
+    console.log(`Getting random images from ${this.RANDOM_BASE_URL}`)
     return this.http.get(this.RANDOM_BASE_URL + page, httpOptions)
       .pipe(catchError(this.handleError));
   }
@@ -39,6 +41,7 @@ export class DisplayService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
+    console.log(`AN ERROR OCCURRED...`)
     console.error(errMsg);
     return Promise.reject(errMsg);
   }

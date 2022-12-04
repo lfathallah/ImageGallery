@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {DisplayService} from './display.service';
 import {NgForm} from "@angular/forms";
 
+const FILE_TYPE_FILTER = "image/";
+
 @Component({
   moduleId: module.id,
   selector: 'display',
@@ -21,6 +23,7 @@ export class DisplayComponent implements OnInit {
 
   searchPhotos(searchForm: NgForm) {
     if (searchForm.invalid) {
+      console.log(`INVALID FORM ERROR.. `)
       return;
     }
 
@@ -40,10 +43,13 @@ export class DisplayComponent implements OnInit {
       data$ = this.displayService.get(this.page);
     }
 
-    data$.subscribe(data => {
-      console.log("Appending images to data array object.")
-      this.data = this.data.concat(this.extractImages(data));
-      console.log(`Displaying a total of ${this.data.length} images`)
+    data$.subscribe(res => {
+      console.log("Appending images to data array object..")
+
+      let searchData = this.extractImages(res);
+      this.data = this.data.concat(searchData);
+
+      console.log(`Found ${searchData.length} images.. Displaying a total of ${this.data.length} images`)
     })
   }
 
@@ -60,8 +66,7 @@ export class DisplayComponent implements OnInit {
 
     // only keep animated images or static ones and exclude albums and videos
     return res.data.filter(img =>
-      !img.is_album &&
-      img.type.toLowerCase().startsWith("image/")
+      img.type && img.type.toLowerCase().startsWith(FILE_TYPE_FILTER)
     );
   }
 
