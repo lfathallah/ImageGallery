@@ -1,11 +1,10 @@
-<section id="search-form">
+<section id="search-form" xmlns="http://www.w3.org/1999/html">
   <form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
-    <div class="search-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="search-box mt-3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
       <button class="search-button" type='submit'>
-        <img src="assets/search.png" alt="">
+        <img src="assets/images/search.png" alt="">
       </button>
-      <p class="message">No images found...</p>
     </div>
   </form>
 </section>
@@ -13,15 +12,18 @@
 <section id="gallery">
   <div class="scrolling-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
        (scrolled)="onScroll()">
-    <div class="container">
-      <div class="row">
+    <p class="message">No images found...</p>
+    <div class="container img-all-container">
+      <div class="row img-row">
         <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>
-          <a href="#target-{{image.id}}" class="fancybox lightbox" rel="ligthbox">
-            <img [src]="image.link" class="zoom img-fluid tile-image" (mouseenter)="onMouseOver(image.id)" (mouseleave)="onMouseLeave(image.id)" alt="">
-            <div class="img-info" [id]="image.id">
-              <p class="img-title">{{image.title}}</p>
-            </div>
-          </a>
+          <div class="img-single-container">
+            <a href="#target-{{image.id}}" class="fancybox lightbox" rel="ligthbox">
+              <img [src]="image.link" class="zoom rounded img-fluid tile-image" (mouseenter)="onMouseOver(image.id)" (mouseleave)="onMouseLeave(image.id)" alt="">
+              <div class="img-info" [id]="image.id">
+                <p class="img-title">{{image.title}}</p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -29,7 +31,7 @@
 
   <div *ngFor='let image of data'>
     <div class="lightbox-target" id="target-{{image.id}}">
-      <img [src]="image.link" alt=""/>
+      <img [src]="image.link" class="img-fluid" alt=""/>
       <a class="lightbox-close" href="#"></a>
     </div>
   </div>

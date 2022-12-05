@@ -1,15 +1,4 @@
-.gallery-title{
-  font-size: 77px;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 70px;
-  margin-top: 70px;
-  font-family: serif;
-}
-.multicolor {
-  background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.banner-img{
+  width: 100%;
+  max-width: 100%;
 }
