@@ -68,7 +68,7 @@ export class DisplayComponent {
    */
   private extractImages(res) {
     if (!res.data || res.data.length == 0) {
-      return {}
+      return []
     }
 
     // only keep animated images or static ones and exclude albums and videos
