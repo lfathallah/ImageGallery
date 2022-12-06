@@ -1,31 +1,8 @@
-.search-box{
+.search {
+  width: 50%;
+}
+.search-form{
   text-align: center;
-}
-.search-box input{
-  font-size: 18px;
-  border: 2px solid #3F6184;
-  padding:5px 10px;
-  border-radius: 5px;
-  color: #000000;
-  background: #F4F5F6;
-  width: 45%;
-}
-.search-box img {
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-}
-.search-button {
-  background: transparent;
-  border: none;
-  outline: none;
-  margin-left: -2%;
-  cursor: pointer;
-}
-.search-button img {
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
 }
 .message{
   display: none;
@@ -64,13 +41,14 @@ img.zoom:hover{
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
   transform: scale(1.1);
-  opacity: 0.6;
+  opacity: 0.4;
 }
 .img-info{
   display: none;
   color: #000000;
   position: absolute;
   top: 0;
+  padding: 10% 1% 10% 1%;
 }
 .img-title{
   font-weight: bold;

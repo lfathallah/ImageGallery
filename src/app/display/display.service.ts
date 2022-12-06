@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {Observable} from "rxjs";
+import {CLIENT_ID, RANDOM_BASE_URL, SEARCH_BASE_URL} from "../../environments/environment";
 
 
-const CLIENT_ID = "b067d5cb828ec5a";
 const httpOptions = {
   headers: new HttpHeaders({
     'Authorization': `Client-ID ${CLIENT_ID}`
@@ -14,21 +14,18 @@ const httpOptions = {
 @Injectable()
 export class DisplayService {
 
-  private SEARCH_BASE_URL = 'https://api.imgur.com/3/gallery/search/';
-  private RANDOM_BASE_URL = 'https://api.imgur.com/3/gallery/random/random/';
-
   constructor(private http: HttpClient) {
   }
 
   get(page: number = 1, query?: string): Observable<any> {
     if (query) {
       console.log(`Searching all images matching query "${query}"`)
-      return this.http.get(this.SEARCH_BASE_URL + `${page}?q=${query}`, httpOptions)
+      return this.http.get(SEARCH_BASE_URL + `${page}?q=${query}`, httpOptions)
         .pipe(catchError(this.handleError));
     }
 
-    console.log(`Getting random images from ${this.RANDOM_BASE_URL}`)
-    return this.http.get(this.RANDOM_BASE_URL + page, httpOptions)
+    console.log(`Getting random images from ${RANDOM_BASE_URL}`)
+    return this.http.get(RANDOM_BASE_URL + page, httpOptions)
       .pipe(catchError(this.handleError));
   }
 

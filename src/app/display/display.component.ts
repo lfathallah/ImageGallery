@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {DisplayService} from './display.service';
 import {NgForm} from "@angular/forms";
 
@@ -34,6 +34,7 @@ export class DisplayComponent {
   search() {
     let data$;
 
+    console.log("Query: ",this.query)
     if (this.query && this.query !== "") {
       console.log(`Getting page ${this.page} of images matching query : "${this.query}" `)
       data$ = this.displayService.get(this.page, this.query)
@@ -83,14 +84,12 @@ export class DisplayComponent {
   }
 
   onMouseOver(elementId: string) {
-    console.log("Hovering HTML element id::", elementId);
-    let imageInfoElt = document.getElementById(elementId) as HTMLElement;
-    imageInfoElt.style.display="block"
+    (document.getElementById(elementId) as HTMLElement)
+      .style.display="block"
   }
 
   onMouseLeave(elementId: string) {
-    console.log("Leaving HTML element id::", elementId);
-    let imageInfoElt = document.getElementById(elementId) as HTMLElement;
-    imageInfoElt.style.display="none"
+    (document.getElementById(elementId) as HTMLElement)
+      .style.display="none"
   }
 }

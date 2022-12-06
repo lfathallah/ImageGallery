@@ -8,6 +8,10 @@ import {DisplayComponent} from './display/display.component';
 import {DisplayService} from "./display/display.service";
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { BannerComponent } from './banner/banner.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { BannerComponent } from './banner/banner.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [DisplayService],
   bootstrap: [AppComponent]

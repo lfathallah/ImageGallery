@@ -1,12 +1,14 @@
-<section id="search-form" xmlns="http://www.w3.org/1999/html">
-  <form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
-    <div class="search-box mt-3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <input placeholder="Search..." name='searchBtn' [(ngModel)]='query'/>
-      <button class="search-button" type='submit'>
-        <img src="assets/images/search.png" alt="">
-      </button>
+<section id="search-section">
+    <div class="mt-3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <form class="search-form" #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
+        <mat-form-field class="search" color="primary">
+          <input matInput placeholder="Search..." name='searchTxt' type="search" [(ngModel)]="query">
+          <button matSuffix mat-button type="submit">
+            <mat-icon matSuffix color="primary">search</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
     </div>
-  </form>
 </section>
 
 <section id="gallery">
@@ -18,10 +20,11 @@
         <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>
           <div class="img-single-container">
             <a href="#target-{{image.id}}" class="fancybox lightbox" rel="ligthbox">
-              <img [src]="image.link" class="zoom rounded img-fluid tile-image" (mouseenter)="onMouseOver(image.id)" (mouseleave)="onMouseLeave(image.id)" alt="">
-              <div class="img-info" [id]="image.id">
+              <img [src]="image.link" class="zoom rounded img-fluid tile-image" (mouseenter)="onMouseOver(image.id)"
+                   (mouseleave)="onMouseLeave(image.id)" alt="">
+              <span class="img-info" [id]="image.id">
                 <p class="img-title">{{image.title}}</p>
-              </div>
+              </span>
             </a>
           </div>
         </div>
