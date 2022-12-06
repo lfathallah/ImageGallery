@@ -5,13 +5,16 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {DisplayComponent} from './display/display.component';
-import {DisplayService} from "./display/display.service";
+import {ImageService} from "./display/image.service";
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { BannerComponent } from './banner/banner.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -27,9 +30,11 @@ import {MatButtonModule} from "@angular/material/button";
     MatToolbarModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    BrowserAnimationsModule
   ],
-  providers: [DisplayService],
+  providers: [ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

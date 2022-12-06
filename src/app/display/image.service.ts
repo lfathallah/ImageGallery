@@ -12,7 +12,7 @@ const httpOptions = {
 }
 
 @Injectable()
-export class DisplayService {
+export class ImageService {
 
   constructor(private http: HttpClient) {
   }

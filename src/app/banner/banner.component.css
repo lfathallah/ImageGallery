@@ -1,4 +1,6 @@
-.banner-img{
-  width: 100%;
-  max-width: 100%;
+.mat-toolbar {
+  background: url('../../assets/images/banner-img.jpg') no-repeat bottom;
+  background-size: cover;
+  color: #fff;
+  height: 256px;
 }

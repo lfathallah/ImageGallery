@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DisplayService} from './display.service';
+import {ImageService} from './image.service';
 import {NgForm} from "@angular/forms";
 
 const FILE_TYPE_FILTER = "image/";
@@ -16,7 +16,7 @@ export class DisplayComponent {
   query: string;
   page: number = 1;
 
-  constructor(private displayService: DisplayService) {
+  constructor(private imageService: ImageService) {
     this.search();
   }
 
@@ -37,10 +37,10 @@ export class DisplayComponent {
     console.log("Query: ",this.query)
     if (this.query && this.query !== "") {
       console.log(`Getting page ${this.page} of images matching query : "${this.query}" `)
-      data$ = this.displayService.get(this.page, this.query)
+      data$ = this.imageService.get(this.page, this.query)
     } else {
       console.log("Getting random images of page ", this.page)
-      data$ = this.displayService.get(this.page);
+      data$ = this.imageService.get(this.page);
     }
 
     data$.subscribe(res => {
