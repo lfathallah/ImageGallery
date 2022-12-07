@@ -1,20 +1,20 @@
 <section id="search-section">
-    <div class="mt-5 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <form class="search-form" #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
-        <mat-form-field class="search" color="primary">
-          <input matInput placeholder="Search..." name='searchTxt' type="search" [(ngModel)]="query">
-          <button matSuffix mat-button type="submit">
-            <mat-icon matSuffix color="primary">search</mat-icon>
-          </button>
-        </mat-form-field>
-      </form>
-    </div>
+  <div class="mt-5 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <form class="search-form" #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
+      <mat-form-field class="search" color="primary">
+        <input matInput placeholder="Search..." name='searchTxt' type="search" [(ngModel)]="query">
+        <button matSuffix mat-button type="submit">
+          <mat-icon matSuffix color="primary">search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+  </div>
 </section>
 
 <section id="gallery">
   <div class="scrolling-container pt-3" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
        (scrolled)="onScroll()">
-    <p class="message">No images found...</p>
+    <p *ngIf="data.length == 0" class="message">No images found...</p>
     <div class="container img-all-container">
       <div class="row img-row">
         <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor='let image of data'>

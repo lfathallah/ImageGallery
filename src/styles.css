@@ -8,3 +8,5 @@ body {
   font-size:16px;
   background: #071828;
 }
+
+html, body { height: 100%; }

@@ -71,3 +71,6 @@ Packages Version
 - rxjs                            7.5.7
 - typescript                      4.8.4
 
+# UX 
+- Angular Material : @angular/material (15.0.1)
+- Bootstrap 4
