@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ImageService} from '../services/image.service';
 import {NgForm} from "@angular/forms";
 
+const FILE_TYPE_FILTER = "image/";
 
 @Component({
   moduleId: module.id,
@@ -64,7 +65,9 @@ export class DisplayComponent {
     }
 
     // only keep animated images or static ones and exclude albums and videos
-    return res.data.filter(img => !img.is_album);
+    return res.data.filter(img =>
+      img.type && img.type.toLowerCase().startsWith(FILE_TYPE_FILTER)
+    );
   }
 
   onScroll() {

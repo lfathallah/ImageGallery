@@ -1,6 +1,54 @@
 .mat-toolbar {
-  background: url('../../assets/images/banner-img.jpg') no-repeat bottom;
   background-size: cover;
   color: #fff;
-  height: 256px;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  text-align: center;
+}
+.mat-toolbar-row{
+  height: 135px;
+  justify-content: center;
+}
+.banner-bg{
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.75)
+              url('https://you.com/_next/image?url=https://cdn.you.com/img/shared/landing-page/background-default-dark.png&w=3840&q=75');
+  height: 100%;
+  width: 100%;
+  filter: blur(20px);
+}
+.banner-title{
+  color: #356ddb;
+  font-size: 230%;
+  font-weight: 400;
+  background: transparent;
+  position: absolute;
+}
+.underline-clip:after {
+  content: '';
+  position: absolute;
+  top: 130%;
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  left: 43%;
+  transform: translate(-50%, 0);
+  border-radius: 100%;
+  border: 6px solid hsl(130deg 38% 72%);
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+}
+.underline-mask:after {
+  content: '';
+  position: absolute;
+  top: 138%;
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  left: 65%;
+  transform: translate(-50%, 0);
+  border-radius: 100%;
+  border: 6px solid hsl(280deg 53% 76%);
+  --spread: 140deg;
+  --start: 290deg;
+  -webkit-mask: conic-gradient(from var(--start), white 0 var(--spread), transparent var(--spread));
+  mask: conic-gradient(from var(--start), white 0 var(--spread), transparent var(--spread));
 }
