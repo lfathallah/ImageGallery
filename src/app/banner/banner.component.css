@@ -9,14 +9,14 @@
 .mat-toolbar-row{
   height: 135px;
   justify-content: center;
+  padding: 0;
 }
 .banner-bg{
-  backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.75)
               url('https://you.com/_next/image?url=https://cdn.you.com/img/shared/landing-page/background-default-dark.png&w=3840&q=75');
   height: 100%;
   width: 100%;
-  filter: blur(20px);
+  filter: blur(10px);
 }
 .banner-title{
   color: #356ddb;
@@ -51,4 +51,9 @@
   --start: 290deg;
   -webkit-mask: conic-gradient(from var(--start), white 0 var(--spread), transparent var(--spread));
   mask: conic-gradient(from var(--start), white 0 var(--spread), transparent var(--spread));
+}
+@media (prefers-color-scheme: dark) {
+  .banner-bg{
+    background-color: rgb(43, 43, 46);
+  }
 }

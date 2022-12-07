@@ -134,3 +134,11 @@ a.lightbox-close:after {
 .lightbox-target:target a.lightbox-close {
   top: 0;
 }
+@media (prefers-color-scheme: dark) {
+  img.zoom:hover{
+    filter: grayscale(60%);
+  }
+  .img-info {
+    color: rgb(199, 199, 204);
+  }
+}
