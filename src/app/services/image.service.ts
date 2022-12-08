@@ -17,6 +17,12 @@ export class ImageService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Get a page of images from the server either randomly if there are no search keywords (reprensented by the query parameter)
+   * or only those matching the search query keywords
+   * @param page : the page number of the images to get
+   * @param query: the search keywords
+   */
   get(page: number = 1, query?: string): Observable<any> {
     if (query) {
       console.log(`Searching all images matching query "${query}"`)
