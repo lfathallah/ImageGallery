@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "reverse-proxy": "lt --port 4200 --local-host localhost",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -40,6 +41,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "protractor": "~7.0.0",
-    "typescript": "~4.8.2"
+    "typescript": "~4.8.2",
+    "localtunnel": "^2.0.2"
   }
 }
