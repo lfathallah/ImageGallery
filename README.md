@@ -16,10 +16,10 @@ Please take a look on the technical environment specification below.
 - ANgular CLI
 
 # Run
-1. Run the local server
+### 1. Run the local server
 There are two options to run the application on local server (localhost).
 
-* manual run 
+#### manual run 
 
 ```sh
 $ npm install 
@@ -27,7 +27,7 @@ $ npm install
 $ npm start
 ```
 
-* docker 
+#### docker 
 
 - Install the docker engine on your machine (depending on your machine's OS). Installation details => https://docs.docker.com/engine/install/
 - Run the start.sh script located at the root of the project
@@ -35,19 +35,21 @@ $ npm start
 $ ./start.sh (or sh start.sh)
 ```
 
-2. Run the reverse proxy
+### 2. Run the reverse proxy
 Whatever option you choose, you might encounter CORS issues (with error code 429) due to your code running on localhost. 
 You can bypass this issue by using a reverse proxy such as **ngrok** (paying service otherwise limited request number) or **localtunnel** (free service).
 
 In this project, the choice has been made on **localtunnel** because it is simply free.
 
-Whether the application is started manually or with docker, you need to run the following command line _in a different terminal tab or window_ to run the reverse proxy and generate a new public front URL.
+If the application is started manually, you need to run the following command line _in a different terminal tab or window_ to run the reverse proxy and generate a new public front URL.
 ```sh
 npm run reverse-proxy
 ```
 Click on the generated link and follow the instructions
 
 <img src="src/assets/images/localtunnel-url.png" width="60%" height="60%">
+
+This step is executed automatically when you run the application with docker and the URL is displayed once the image is up
 
 > **_NOTE:_** 
 > you can choose to use **ngrok** instead of localtunnel. 

@@ -2,9 +2,9 @@
   "name": "image-gallery",
   "version": "1.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
     "reverse-proxy": "lt --port 4200 --local-host localhost",
+    "start:docker": "./start.sh && npm run reverse-proxy",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
