@@ -3,7 +3,7 @@
 ![Generic badge](https://img.shields.io/badge/bootstrap-v4-blueviolet)
 
 
-# Fieldwire - Image Gallery
+# Image Gallery
 
 This single page Web app to **display** and **search** and **view** images that are hosted in _imgur_.
 
